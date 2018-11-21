@@ -57,7 +57,10 @@ utils.autoEnablePym();
 
 
 import Chart from './chart.js';
+import ageChart from './age.js';
 
 const chart1 = new Chart('#chart');
+const chart2 = new ageChart('#chartAge');
 
 chart1.render();
+chart2.render();

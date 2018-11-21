@@ -85,6 +85,10 @@ h2 {
   #chartTrend .c3-area {
     opacity: 1 !important;
   }
+
+  #chartAge, #chartAge .overlay {
+    pointer-events:none !important;
+  }
   
   #chartType {
     height:500px;
