@@ -56,7 +56,7 @@ utils.autoEnablePym();
 // });
 
 import * as d3 from 'd3';
-import * as mapboxgl from 'mapbox-gl';
+// import * as mapboxgl from 'mapbox-gl';
 
 import Chart from './chart.js';
 import ageChart from './age.js';
