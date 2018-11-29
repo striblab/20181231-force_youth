@@ -143,51 +143,33 @@ $.urlParam = function(name){
                         "source": "shootings",
                         "paint": {
                            "circle-radius": 3,
-                           "circle-color": 'rgba(150, 150, 150, 0.8)',
-                        },
-                        "filter": [
-                        "==",
-                        "WeaponCategory",
-                        "UNARMED"]
+                           "circle-color": 'rgb(53, 128, 163)',
+                           "circle-opacity": 0.3
+                        }
               });
+  
+      // var popup = new mapboxgl.Popup({
+      //     closeButton: false,
+      //     closeOnClick: false
+      // });
       
-               map.addLayer({
-                        "id": "shootings-layer2",
-                        "type": "circle",
-                        "source": "shootings",
-                        "paint": {
-                           "circle-radius": 3,
-                           "circle-color": 'rgba(66, 134, 244, 0.8)'
-                        },
-                        "filter": [
-                        "!=",
-                        "WeaponCategory",
-                        "UNARMED"]
-              });
+      // map.on('mousemove', function(e) {
+      //     var features = map.queryRenderedFeatures(e.point, { layers: ['shootings-layer','shootings-layer2'] });
+      //     // Change the cursor style as a UI indicator.
+      //     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
       
+      //     if (!features.length) {
+      //         popup.remove();
+      //         return;
+      //     }
       
-      var popup = new mapboxgl.Popup({
-          closeButton: false,
-          closeOnClick: false
-      });
+      //     var feature = features[0];
       
-      map.on('mousemove', function(e) {
-          var features = map.queryRenderedFeatures(e.point, { layers: ['shootings-layer','shootings-layer2'] });
-          // Change the cursor style as a UI indicator.
-          map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-      
-          if (!features.length) {
-              popup.remove();
-              return;
-          }
-      
-          var feature = features[0];
-      
-          // Populate the popup and set its coordinates
-          // based on the feature found.
-          popup.setLngLat(e.lngLat)
-              .setHTML("<div>" + feature.properties.FirstName + " " + feature.properties.LastName + "</div><div>died in " + feature.properties.year + "</div><div>" + feature.properties.WeaponCategory + "</div>")
-              .addTo(map);
-      });
+      //     // Populate the popup and set its coordinates
+      //     // based on the feature found.
+      //     popup.setLngLat(e.lngLat)
+      //         .setHTML("<div>" + feature.properties.FirstName + " " + feature.properties.LastName + "</div><div>died in " + feature.properties.year + "</div><div>" + feature.properties.WeaponCategory + "</div>")
+      //         .addTo(map);
+      // });
       
       });
