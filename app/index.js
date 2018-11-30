@@ -145,7 +145,8 @@ $.urlParam = function(name){
                            "circle-radius": 3,
                            "circle-color": 'rgb(53, 128, 163)',
                            "circle-opacity": 0.3
-                        }
+                        },
+                        // "filter": ["==", "ResponseYear", 2018]
               });
   
       // var popup = new mapboxgl.Popup({
