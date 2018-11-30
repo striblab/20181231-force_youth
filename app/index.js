@@ -90,7 +90,7 @@ $.urlParam = function(name){
           container: 'map', // container id
           style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
           center: [-93.264313, 44.973269], 
-          zoom: 10,
+          zoom: 10.5,
           minZoom: 10,
           hash: false
       });
@@ -142,7 +142,7 @@ $.urlParam = function(name){
                         "type": "circle",
                         "source": "shootings",
                         "paint": {
-                           "circle-radius": 3,
+                           "circle-radius": 2,
                            "circle-color": 'rgb(53, 128, 163)',
                            "circle-opacity": 0.3
                         },
