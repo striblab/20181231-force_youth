@@ -103,6 +103,10 @@ h2 {
     pointer-events:none !important;
   }
   
+  .mapboxgl-ctrl-compass {
+    display:none !important;
+  }
+
   #chartType {
     height:500px;
   }
@@ -235,7 +239,7 @@ h2 {
   }
   
   @media (max-width:800px) {
-      #wrapper {
+      #wrapper, .slide, #map {
           width:100%;
       }
   
