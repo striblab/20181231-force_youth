@@ -142,7 +142,7 @@ $.urlParam = function(name){
                         "type": "circle",
                         "source": "shootings",
                         "paint": {
-                           "circle-radius": 2,
+                           "circle-radius": 1.4,
                            "circle-color": 'rgb(53, 128, 163)',
                            "circle-opacity": 0.3
                         },
