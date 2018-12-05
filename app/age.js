@@ -61,7 +61,7 @@ class ageChart {
                     },
                 x: {
                   type: 'category',
-                  categories: ['6-15','16-24','25-34','35-44','45-54','55-64','65+','NA'],
+                  categories: ['Age 6-15','Age 16-24','Age 25-34','Age 35-44','Age 45-54','Age 55-64','Age 65+','Unknown'],
                   padding: {right: 0, left: 0},
                         tick: {
                          rotate: -75,
