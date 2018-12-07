@@ -114,6 +114,11 @@ h2 {
   .chart .c3-circle {
       stroke-width: 4;
   }
+
+  .adjacent {
+    width:48%;
+    display:inline-block;
+  }
   
   .byline a {
       color: #888 !important;
@@ -261,6 +266,11 @@ h2 {
   @media (max-width:500px) {
       #wrapper {
           width:100%;
+      }
+
+      .adjacent {
+        width:100%;
+        display:block;
       }
   
     .ind {

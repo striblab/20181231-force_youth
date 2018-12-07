@@ -62,10 +62,12 @@ import Chart from './chart.js';
 import ageChart from './age.js';
 
 const chart1 = new Chart('#chart');
-const chart2 = new ageChart('#chartAge');
+const chart2 = new ageChart('#chartAgeB');
+const chart3 = new ageChart('#chartAgeW');
 
 chart1.render();
 chart2.render();
+chart3.render();
 
 //chart selection parameters
 $.urlParam = function(name){
