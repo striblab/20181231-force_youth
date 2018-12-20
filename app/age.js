@@ -17,15 +17,22 @@ class ageChart {
             bottom: 20,
             left: 60,
         };
+        
+      var black = ['Incidents', 0.016,0.215758468,0.165491047,0.074645376,0.04046198,0.006007286,0.001007674,0.005];
+      var white = ['Incidents', 0.001395295,0.075772257,0.087128406,0.03635518,0.021782101,0.006162552,0.001317778,0.001860393];
+
+      var dataset = black;
+
+      if (self.target == '#chartAgeW') { 
+          dataset = white; 
+      }
       
       self.chartCounts = c3.generate({
           bindto: self.target,
           padding: padding,
           data: {
-                // x: 'x',
                 columns: [
-                    // ['2016', 0.05, 0.06, 0.06, 0.10, 0.20, 0.27, 0.23, 0.03],
-                    ['Incidents', 0.016, 0.215758468,0.165491047,0.074645376,0.04046198,0.006007286,0.001007674,0.005]
+                    dataset
                 ],
             type: 'bar',
             labels: {
