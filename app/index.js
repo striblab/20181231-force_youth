@@ -132,7 +132,7 @@ $.urlParam = function(name){
               },
                  'fill-outline-color': 'rgba(255, 255, 255, 1)'
            }
-         }, 'place-neighbourhood');
+         }, 'road-street');
       
        map.addSource('shootings', {
          type: 'geojson',

@@ -22,9 +22,11 @@ class ageChart {
       var white = ['Incidents', 0.001395295,0.075772257,0.087128406,0.03635518,0.021782101,0.006162552,0.001317778,0.001860393];
 
       var dataset = black;
+      var chartTitle = "Force against black individuals";
 
       if (self.target == '#chartAgeW') { 
           dataset = white; 
+          chartTitle = "Force against white individuals";
       }
       
       self.chartCounts = c3.generate({
@@ -40,6 +42,9 @@ class ageChart {
                     'Incidents': d3.format('.0%')
                 }
             }
+          },
+          title: {
+            text: chartTitle
           },
             tooltip: {
                 show: false
