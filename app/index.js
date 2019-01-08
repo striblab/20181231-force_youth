@@ -140,17 +140,29 @@ $.urlParam = function(name){
        });
       
                map.addLayer({
-                        "id": "shootings-layer",
+                        "id": "shootings-layer-1",
                         "type": "circle",
                         "source": "shootings",
                         "paint": {
                            "circle-radius": 1.4,
-                           "circle-color": 'rgb(53, 128, 163)',
+                           "circle-color": '#3580A3',
                            "circle-opacity": 0.3
                         },
-                        // "filter": ["==", "ResponseYear", 2018]
+                        "filter": ["==", "AgeGroup", "16_24"]
               }, 'place-neighbourhood');
   
+              map.addLayer({
+                "id": "shootings-layer-2",
+                "type": "circle",
+                "source": "shootings",
+                "paint": {
+                   "circle-radius": 1.4,
+                   "circle-color": '#A7E6E3',
+                   "circle-opacity": 0.3
+                },
+                "filter": ["==", "AgeGroup", "25_34"]
+              }, 'place-neighbourhood');
+
       // var popup = new mapboxgl.Popup({
       //     closeButton: false,
       //     closeOnClick: false
