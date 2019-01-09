@@ -91,10 +91,7 @@ $.urlParam = function(name){
       var map = new mapboxgl.Map({
           container: 'map', // container id
           style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
-          center: [-93.264313, 44.973269], 
-          zoom: 11,
-          minZoom: 10,
-          hash: false
+          center: [-93.264313, 44.973269]
       });
       
       map.addControl(new mapboxgl.NavigationControl());
@@ -194,13 +191,11 @@ $.urlParam = function(name){
             map.flyTo({
               center: [-93.264313, 44.973269], 
               zoom: 10,
-              minZoom: 9
             });
         } else {
             map.flyTo({
               center: [-93.264313, 44.973269], 
-              zoom: 11,
-              minZoom: 10
+              zoom: 12,
             });
         }
         $(window).resize(function() {
@@ -208,13 +203,11 @@ $.urlParam = function(name){
                 map.flyTo({
                   center: [-93.264313, 44.973269], 
                   zoom: 10,
-                  minZoom: 9
                 });
             } else {
                 map.flyTo({
                   center: [-93.264313, 44.973269], 
-                  zoom: 11,
-                  minZoom: 10
+                  zoom: 12,
                 });
             }
         });
