@@ -91,7 +91,8 @@ $.urlParam = function(name){
       var map = new mapboxgl.Map({
           container: 'map', // container id
           style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
-          center: [-93.264313, 44.973269]
+          center: [-93.264313, 44.973269],
+          minZoom: 10
       });
       
       map.addControl(new mapboxgl.NavigationControl());
