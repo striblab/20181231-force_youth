@@ -36,7 +36,7 @@ class ageChart {
                 columns: [
                     dataset
                 ],
-            type: 'bar',
+            type: 'area',
             labels: {
                 format: {
                     'Incidents': d3.format('.0%')

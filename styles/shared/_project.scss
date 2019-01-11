@@ -99,9 +99,17 @@ h2 {
     opacity: 1 !important;
   }
 
-  #chartAge, #chartAge .overlay {
+  #chartAgeB, #chartAgeB .overlay, #chartAgeW, #chartAgeW .overlay {
     pointer-events:none !important;
   }
+
+  #chartAgeB .c3-line, #chartAgeW .c3-line {
+    opacity:0 !important;
+}
+
+#chartAgeB .c3-area, #chartAgeW .c3-area {
+  opacity: 1 !important;
+}
   
   .mapboxgl-ctrl-compass {
     display:none !important;
