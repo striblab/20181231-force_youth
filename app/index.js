@@ -138,31 +138,31 @@ map.on('load', function() {
         }
     }, 'road-street');
 
-    map.addSource('shootings', {
+    map.addSource('incidents', {
         type: 'geojson',
         data: './shapefiles/incidents.json'
     });
 
     map.addLayer({
-        "id": "shootings-layer-1",
+        "id": "incidents-layer-1",
         "type": "circle",
-        "source": "shootings",
+        "source": "incidents",
         "paint": {
             "circle-radius": 1.4,
             "circle-color": '#3580A3',
-            "circle-opacity": 0.3
+            "circle-opacity": 1
         },
         "filter": ["==", "AgeGroup", "16_24"]
     }, 'place-neighbourhood');
 
     map.addLayer({
-        "id": "shootings-layer-2",
+        "id": "incidents-layer-2",
         "type": "circle",
-        "source": "shootings",
+        "source": "incidents",
         "paint": {
             "circle-radius": 1.4,
-            "circle-color": '#A7E6E3',
-            "circle-opacity": 0.3
+            "circle-color": '#66AF50',
+            "circle-opacity": 1
         },
         "filter": ["==", "AgeGroup", "25_34"]
     }, 'place-neighbourhood');
