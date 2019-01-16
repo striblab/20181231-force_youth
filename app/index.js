@@ -161,7 +161,7 @@ map.on('load', function() {
         "source": "incidents",
         "paint": {
             "circle-radius": 1.4,
-            "circle-color": '#66AF50',
+            "circle-color": '#A7E6E3',
             "circle-opacity": 1
         },
         "filter": ["==", "AgeGroup", "25_34"]
