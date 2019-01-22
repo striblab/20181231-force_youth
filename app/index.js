@@ -94,11 +94,15 @@ if (selected == "all") {
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 
+var dzoom = 10.5;
+var mzoom = 10.5;
+
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
     center: [-93.264313, 44.973269],
-    minZoom: 10
+    zoom: dzoom,
+    minZoom: mzoom
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -197,24 +201,24 @@ $(document).ready(function() {
     if ($("#wrapper").width() < 600) {
         map.flyTo({
             center: [-93.264313, 44.973269],
-            zoom: 10,
+            zoom: mzoom,
         });
     } else {
         map.flyTo({
             center: [-93.264313, 44.973269],
-            zoom: 12,
+            zoom: dzoom,
         });
     }
     $(window).resize(function() {
         if ($("#wrapper").width() < 600) {
             map.flyTo({
                 center: [-93.264313, 44.973269],
-                zoom: 10,
+                zoom: mzoom,
             });
         } else {
             map.flyTo({
                 center: [-93.264313, 44.973269],
-                zoom: 12,
+                zoom: dzoom,
             });
         }
     });
