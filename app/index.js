@@ -109,81 +109,8 @@ map.addControl(new mapboxgl.NavigationControl());
 map.scrollZoom.disable();
 map.doubleClickZoom.disable();
 
-            //CREATE A BOUNDING BOX AROUND POINTS (ALSO USE FOR HEX GRID)
-            var enveloped = turf.envelope(removed); //send point geojson to turf, creates an 'envelope' (bounding box) around points
-            var result = { //put the resulting envelope in a geojson format FeatureCollection
-                "type": "FeatureCollection",
-                "features": [enveloped] //don't forget brackets
-            };
-
-        //CREATE A HEX GRID
-        //must be in order: minX, minY, maxX, maxY ... you have to pick these out from your envelope that you created previously
-        var bbox = [-93.00432, 44.992016, -93.207787, 44.887399];
-        var hexgridUnits = 'miles'; //units that will determine the width of the hex grid
-        var cellWidth = 0.9; //in the units you defined above
-        var hexgrid = turf.hexGrid(bbox, cellWidth, hexgridUnits); //makes the new geojson hexgrid features
-
-        //COUNT THE NUMBER OF TREES IN EACH HEX BIN
-        var hexRemoved = turf.count(hexgrid, removed, 'removedCount');
-        var hexPlanted = turf.count(hexgrid, planted, 'plantedCount');
-        var hexDIFF = turf.count(hexgrid, plantedAll, 'plantedAllCount');
-
-                //create jenks natural breaks - generates min, breaks, max ... remember for 5 categories, we only need 4 numbers
-                var numberBreaks = 10
-                var jenksbreaks = turf.jenks(hexRemoved, 'removedCount', numberBreaks);
-                var colors = ['#F2AC93', '#F2AC93', '#F2AC93', '#F28670', '#F28670', '#F2614C', '#F2614C', '#C22A22', '#C22A22', '#9C0004']
-                var transparency = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-
-                jenksbreaks.forEach(function(element, i) {
-
-                    if (i > 0) {
-                        jenksbreaks[i] = [element, colors[i - 1], transparency[i - 1]];
-                    } else {
-                        jenksbreaks[i] = [element, null];
-                    }
-                });
-
-                var binaryBreaks = [-1,0,1];
-
-
                 
 map.on('load', function() {
-
-    jenksbreaks.forEach(function(jenksbreak, i) {
-        if (i > 0) {
-            var filters = ['all', ['<=', 'removedCount', jenksbreak[0]]];
-            if (i > 1) {
-                filters.push(['>', 'removedCount', jenksbreaks[i - 1][0]]);
-                map.setFilter('removedHexGrid-' + (i - 1), filters);
-            };
-
-        };
-    });
-
-     map.addSource("removed", {
-        type: "geojson",
-        data: removed
-    });
-                //HEXGRIDS
-                map.addSource('removedHexGrid', {
-                    "type": "geojson",
-                    "data": hexRemoved //this is the hexgrid we just created!
-                });
-                for (var i = 0; i < jenksbreaks.length; i++) {
-                    if (i > 0) {
-                        map.addLayer({
-                            "id": "removedHexGrid-" + (i - 1),
-                            "type": "fill",
-                            "source": "removedHexGrid",
-                            "layout": {},
-                            "paint": {
-                                'fill-color': jenksbreaks[i][1],
-                                'fill-opacity': jenksbreaks[i][2],
-                            }
-                        }, "road-label-medium");
-                    };
-                };
-
 
 
     map.addSource('nb', {
