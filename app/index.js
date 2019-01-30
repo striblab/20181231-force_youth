@@ -94,13 +94,14 @@ if (selected == "all") {
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 
-var dzoom = 10.5;
-var mzoom = 10.5;
+var dzoom = 11.5;
+var mzoom = 11.5;
 
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
-    center: [-93.264313, 44.973269],
+    // center: [-93.264313, 44.973269],
+    center: [-93.272226, 44.986057],
     zoom: dzoom,
     minZoom: mzoom
 });
@@ -112,66 +113,106 @@ map.doubleClickZoom.disable();
                 
 map.on('load', function() {
 
-
     map.addSource('nb', {
         type: 'geojson',
-        data: './shapefiles/minneapolis_nb.json'
-    });
-
-    map.addLayer({
-        'id': 'nb-layer',
-        'interactive': true,
-        'source': 'nb',
-        'layout': {},
-        'type': 'fill',
-        'paint': {
-            'fill-antialias': true,
-            'fill-opacity': 0.7,
-            'fill-color': {
-                "property": "maindata_rate",
-                "stops": [
-                    [0, "#dddddd"],
-                    [1, "#fee0d2"],
-                    [4, "#fcbba1"],
-                    [6, "#fc9272"],
-                    [8, "#fb6a4a"],
-                    [10, "#ef3b2c"],
-                    [20, "#cb181d"],
-                    [30, "#99000d"]
+        data: './shapefiles/hex.json'
+      });
+     
+       map.addLayer({
+            'id': 'nb-layer',
+            'interactive': true,
+            'source': 'nb',
+            'layout': {},
+            'type': 'fill',
+                 'paint': {
+                'fill-antialias' : true,
+                'fill-opacity': 0.7,
+                'fill-color': {
+                 "property": "NUMPOINTS",
+                 "stops": [
+                   [0, "rgba(255, 255, 255, 0)"],
+                   [1, "rgba(247, 251, 255, 0.5)"],
+                   [50, "#D1E6E1"],
+                   [75, "#A7E6E3"],
+                   [100, "#67B4C2"],
+                   [500, "#3580A3"],
+                   [1000, "#0D4673"]
                 ]
-            },
-            'fill-outline-color': 'rgba(255, 255, 255, 1)'
-        }
-    }, 'road-street');
+             },
+                'fill-outline-color': {
+                 "property": "NUMPOINTS",
+                 "stops": [
+                   [0, "rgba(255, 255, 255, 0)"],
+                   [1, "#888888"],
+                   [20, "#888888"],
+                   [40, "#888888"],
+                   [60, "#888888"],
+                   [80, "#888888"],
+                   [100, "#888888"]
+                ]
+             }
+          }
+        }, 'road-primary');
 
-    map.addSource('incidents', {
-        type: 'geojson',
-        data: './shapefiles/incidents.json'
-    });
+    // map.addSource('nb', {
+    //     type: 'geojson',
+    //     data: './shapefiles/minneapolis_nb.json'
+    // });
 
-    map.addLayer({
-        "id": "incidents-layer-1",
-        "type": "circle",
-        "source": "incidents",
-        "paint": {
-            "circle-radius": 1.4,
-            "circle-color": '#3580A3',
-            "circle-opacity": 1
-        },
-        "filter": ["==", "AgeGroup", "16_24"]
-    }, 'place-neighbourhood');
+    // map.addLayer({
+    //     'id': 'nb-layer',
+    //     'interactive': true,
+    //     'source': 'nb',
+    //     'layout': {},
+    //     'type': 'fill',
+    //     'paint': {
+    //         'fill-antialias': true,
+    //         'fill-opacity': 0.7,
+    //         'fill-color': {
+    //             "property": "maindata_rate",
+    //             "stops": [
+    //                 [0, "#dddddd"],
+    //                 [1, "#fee0d2"],
+    //                 [4, "#fcbba1"],
+    //                 [6, "#fc9272"],
+    //                 [8, "#fb6a4a"],
+    //                 [10, "#ef3b2c"],
+    //                 [20, "#cb181d"],
+    //                 [30, "#99000d"]
+    //             ]
+    //         },
+    //         'fill-outline-color': 'rgba(255, 255, 255, 1)'
+    //     }
+    // }, 'road-street');
 
-    map.addLayer({
-        "id": "incidents-layer-2",
-        "type": "circle",
-        "source": "incidents",
-        "paint": {
-            "circle-radius": 1.4,
-            "circle-color": '#A7E6E3',
-            "circle-opacity": 1
-        },
-        "filter": ["==", "AgeGroup", "25_34"]
-    }, 'place-neighbourhood');
+    // map.addSource('incidents', {
+    //     type: 'geojson',
+    //     data: './shapefiles/incidents.json'
+    // });
+
+    // map.addLayer({
+    //     "id": "incidents-layer-1",
+    //     "type": "circle",
+    //     "source": "incidents",
+    //     "paint": {
+    //         "circle-radius": 1.4,
+    //         "circle-color": '#3580A3',
+    //         "circle-opacity": 1
+    //     },
+    //     "filter": ["==", "AgeGroup", "16_24"]
+    // }, 'place-neighbourhood');
+
+    // map.addLayer({
+    //     "id": "incidents-layer-2",
+    //     "type": "circle",
+    //     "source": "incidents",
+    //     "paint": {
+    //         "circle-radius": 1.4,
+    //         "circle-color": '#A7E6E3',
+    //         "circle-opacity": 1
+    //     },
+    //     "filter": ["==", "AgeGroup", "25_34"]
+    // }, 'place-neighbourhood');
 
     // var popup = new mapboxgl.Popup({
     //     closeButton: false,
@@ -202,24 +243,24 @@ map.on('load', function() {
 $(document).ready(function() {
     if ($("#wrapper").width() < 600) {
         map.flyTo({
-            center: [-93.264313, 44.973269],
+            center: [-93.272226, 44.986057],
             zoom: mzoom,
         });
     } else {
         map.flyTo({
-            center: [-93.264313, 44.973269],
+            center: [-93.272226, 44.986057],
             zoom: dzoom,
         });
     }
     $(window).resize(function() {
         if ($("#wrapper").width() < 600) {
             map.flyTo({
-                center: [-93.264313, 44.973269],
+                center: [-93.272226, 44.986057],
                 zoom: mzoom,
             });
         } else {
             map.flyTo({
-                center: [-93.264313, 44.973269],
+                center: [-93.272226, 44.986057],
                 zoom: dzoom,
             });
         }
