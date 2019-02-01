@@ -62,6 +62,7 @@ class ageChart {
             axis: {
                   rotated: true,
                   y: {
+                        show: false,
                         max: 1,
                         min: 0,
                         padding: {bottom: 0, top: 0},
