@@ -101,8 +101,9 @@ class Chart {
             },
             tooltip: {
                 contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-                    return '<div class="chart-tooltip gray5"><span class="tooltip-label">' + d[0].x + ':</span>' +
-                        '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span></div>'
+                    return '<div class="chart-tooltip blue4"><span class="tooltip-label">Blacks 16-24:</span>' +
+                        '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span></div><div class="chart-tooltip blue2"><span class="tooltip-label">Blacks 25-34:</span>' +
+                        '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span></div>'
                 }
             }
         });
