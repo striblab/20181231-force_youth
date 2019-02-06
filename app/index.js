@@ -154,6 +154,25 @@ map.on('load', function() {
           }
         }, 'road-primary');
 
+    map.addSource('nb2', {
+        type: 'geojson',
+        data: './shapefiles/minneapolis_nb.json'
+    });
+
+    map.addLayer({
+        'id': 'nb2-layer',
+        'interactive': true,
+        'source': 'nb2',
+        'layout': {},
+        'type': 'fill',
+        'paint': {
+            'fill-antialias': true,
+            'fill-opacity': 0.7,
+            'fill-color': 'rgba(255, 255, 255, 0.5)',
+            'fill-outline-color': 'rgba(0, 0, 0, 1)'
+        }
+    }, 'road-primary');
+
     // map.addSource('nb', {
     //     type: 'geojson',
     //     data: './shapefiles/minneapolis_nb.json'
