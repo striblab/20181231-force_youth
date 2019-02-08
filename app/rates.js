@@ -28,8 +28,8 @@ class RatesChart {
                 },
                 columns: [
                     ['x', 2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020],
-                    ['Convictions', 0.13,0.13,0.14,0.15,0.14,0.15,0.16,0.17,0.15,0.16,0.15,null,null],
-                    ['Force', 0.241904762,0.243145743,0.2752443,0.259382819,0.2426405,0.222339305,0.23358349,0.224660397,0.227360308,0.207708779,0.168704156,null,null]
+                    ['Force', 0.241904762,0.243145743,0.2752443,0.259382819,0.2426405,0.222339305,0.23358349,0.224660397,0.227360308,0.207708779,0.168704156,null,null],
+                    ['Convictions', 0.13,0.13,0.14,0.15,0.14,0.15,0.16,0.17,0.15,0.16,0.15,null,null]
                 ],
                 type: 'line',
                 line: {
@@ -53,7 +53,7 @@ class RatesChart {
                 }
             },
             color: {
-                pattern: ['#333333','#3580A3']
+                pattern: ['#3580A3','#333333']
             },
             axis: {
                 // rotated: true,
@@ -99,8 +99,8 @@ class RatesChart {
             },
             tooltip: {
                 contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-                    return '<div class="chart-tooltip gray5"><span class="tooltip-label">Convictions:</span>' +
-                        '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span></div><div class="chart-tooltip blue4"><span class="tooltip-label">Force use:</span>' +
+                    return '<div class="chart-tooltip gray3">' + d[0].x + '</div><div class="chart-tooltip blue4"><span class="tooltip-label">Convictions:</span>' +
+                        '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span></div><div class="chart-tooltip gray5"><span class="tooltip-label">Force use:</span>' +
                         '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span></div>'
                 }
             }
