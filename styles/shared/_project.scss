@@ -94,6 +94,14 @@ h2 {
   }
   
   .slide {
+    // display:none;
+
+  .chartLabel {
+    font-size:0.8em;
+    text-align:left;
+    font-weight:bold;
+  }
+
   #chartTrend .c3-line {
       opacity:0 !important;
   }

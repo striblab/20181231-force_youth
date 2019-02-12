@@ -43,9 +43,9 @@ class ageChart {
                 }
             }
           },
-          title: {
-            text: chartTitle
-          },
+        //   title: {
+        //     text: chartTitle
+        //   },
             tooltip: {
                 show: false
             },
@@ -88,6 +88,8 @@ class ageChart {
     d3.selectAll(".c3-target-2018")
     .selectAll(".c3-bar, .c3-texts")
     .attr("transform", "translate(0, 2)");
+
+    $(self.target).append("<div class='chartLabel'>" + chartTitle + "</div>");
 
     }
   }
