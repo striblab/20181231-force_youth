@@ -21,3 +21,6 @@ $strib-fonts-location: '//static.startribune.com/assets/libs/strib-icons/0.0.10/
 // Split your styles into multiple files so its easier to understand and change
 @import 'shared/_project';
 
+.c3-tooltip-container {
+    font-size:0.8em !important;
+}
